@@ -65,8 +65,13 @@
         .service-card { background: var(--white); padding: 25px; border-radius: 20px; border-bottom: 4px solid var(--primary-red); box-shadow: var(--shadow); text-align: center; }
         .service-card i { font-size: 2.5rem; color: var(--primary-red); margin-bottom: 15px; display: block; }
 
-        /* --- PAKET HARGA (DETAILED) --- */
-        .price-card { background: var(--white); padding: 35px 25px; border-radius: 30px; margin-bottom: 25px; box-shadow: var(--shadow); border: 1px solid #ffebeb; position: relative; }
+        /* --- ALUR KERJA --- */
+        .step-container { display: flex; flex-direction: column; gap: 20px; position: relative; }
+        .step-card { background: var(--white); padding: 20px; border-radius: 20px; display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow); }
+        .step-num { background: var(--gradient-red); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; }
+
+        /* --- PAKET HARGA --- */
+        .price-card { background: var(--white); padding: 35px 25px; border-radius: 30px; margin-bottom: 25px; box-shadow: var(--shadow); border: 1px solid #ffebeb; position: relative; text-align: center; }
         .featured-price { border: 2.5px solid var(--primary-red); transform: scale(1.02); }
         .price-tag { font-size: 2.5rem; font-weight: 800; color: var(--text-dark); margin: 15px 0; }
         .price-list { list-style: none; text-align: left; font-size: 0.85rem; color: var(--text-light); }
@@ -123,9 +128,30 @@
         </div>
     </section>
 
+    <section id="alur">
+        <h2 class="section-title" data-aos="fade-up">Alur Kerja</h2>
+        <div class="step-container">
+            <div class="step-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="step-num">1</div>
+                <div><strong>Konsultasi</strong><p style="font-size:0.8rem; color:var(--text-light);">Diskusi kebutuhan & target bisnis Anda.</p></div>
+            </div>
+            <div class="step-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="step-num">2</div>
+                <div><strong>Perencanaan</strong><p style="font-size:0.8rem; color:var(--text-light);">Pemilihan paket, domain, & konsep desain.</p></div>
+            </div>
+            <div class="step-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="step-num">3</div>
+                <div><strong>Development</strong><p style="font-size:0.8rem; color:var(--text-light);">Proses coding & perakitan sistem aplikasi.</p></div>
+            </div>
+            <div class="step-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="step-num">4</div>
+                <div><strong>Launching</strong><p style="font-size:0.8rem; color:var(--text-light);">Quality control & website siap online!</p></div>
+            </div>
+        </div>
+    </section>
+
     <section id="pricing">
         <h2 class="section-title" data-aos="fade-up">Paket Harga</h2>
-        
         <div class="price-card" data-aos="fade-up">
             <h3 style="color:var(--primary-red)">STARTER PACK</h3>
             <div class="price-tag">650K<span style="font-size:1rem; color:#999;">/Thn</span></div>
@@ -135,8 +161,6 @@
                 <li><i class="fa-solid fa-circle-check"></i> Cloud Hosting High Speed 500MB</li>
                 <li><i class="fa-solid fa-circle-check"></i> Keamanan SSL (Gembok Hijau)</li>
                 <li><i class="fa-solid fa-circle-check"></i> Tombol Chat WhatsApp Melayang</li>
-                <li><i class="fa-solid fa-circle-check"></i> Mobile Responsive (Buka di HP Rapi)</li>
-                <li><i class="fa-solid fa-circle-check"></i> Estimasi Pengerjaan 3-5 Hari</li>
             </ul>
         </div>
 
@@ -147,10 +171,8 @@
                 <li><i class="fa-solid fa-circle-check"></i> Hingga 5 Halaman Utama</li>
                 <li><i class="fa-solid fa-circle-check"></i> Hosting Unlimited Bandwidth 2GB</li>
                 <li><i class="fa-solid fa-circle-check"></i> 3 Alamat Email Bisnis (@namaweb)</li>
-                <li><i class="fa-solid fa-circle-check"></i> SEO On-Page Dasar (Cepat di Google)</li>
-                <li><i class="fa-solid fa-circle-check"></i> Integrasi Google Maps & Galeri Foto</li>
-                <li><i class="fa-solid fa-circle-check"></i> Gratis Update Konten 1x Sebulan</li>
-                <li><i class="fa-solid fa-circle-check"></i> Prioritas Support Maintenance</li>
+                <li><i class="fa-solid fa-circle-check"></i> SEO On-Page Dasar & Google Maps</li>
+                <li><i class="fa-solid fa-circle-check"></i> Free Maintenance 1 Tahun</li>
             </ul>
         </div>
 
@@ -158,13 +180,10 @@
             <h3 style="color:var(--primary-red)">CUSTOM SYSTEM</h3>
             <div class="price-tag">2.5 JT<span style="font-size:1rem; color:#999;">++</span></div>
             <ul class="price-list">
-                <li><i class="fa-solid fa-circle-check"></i> Aplikasi Web / Android Sesuai Request</li>
+                <li><i class="fa-solid fa-circle-check"></i> Full Web/Android System Sesuai Request</li>
                 <li><i class="fa-solid fa-circle-check"></i> Integrasi Database & Sistem Login</li>
-                <li><i class="fa-solid fa-circle-check"></i> Fitur Dashboard Admin & Laporan</li>
-                <li><i class="fa-solid fa-circle-check"></i> Unlimited Bandwidth & Kapasitas Besar</li>
                 <li><i class="fa-solid fa-circle-check"></i> Penyerahan Full Source Code</li>
                 <li><i class="fa-solid fa-circle-check"></i> Garansi Bebas Bug 6 Bulan</li>
-                <li><i class="fa-solid fa-circle-check"></i> Training Penggunaan Hingga Bisa</li>
             </ul>
         </div>
     </section>
@@ -195,10 +214,10 @@
         <div class="testi-slider">
             <div class="testi-track">
                 <div class="testi-box"><strong>Sari P.</strong><p>"Webnya sangat elegan, omzet naik!"</p></div>
-                <div class="testi-box"><strong>Budi S.</strong><p>"Sistem kustomnya sangat membantu bisnis kami."</p></div>
+                <div class="testi-box"><strong>Budi S.</strong><p>"Sistem kustomnya sangat membantu bisnis."</p></div>
                 <div class="testi-box"><strong>Andi M.</strong><p>"Ads-nya mantap, chat masuk terus!"</p></div>
                 <div class="testi-box"><strong>Sari P.</strong><p>"Webnya sangat elegan, omzet naik!"</p></div>
-                <div class="testi-box"><strong>Budi S.</strong><p>"Sistem kustomnya sangat membantu bisnis kami."</p></div>
+                <div class="testi-box"><strong>Budi S.</strong><p>"Sistem kustomnya sangat membantu bisnis."</p></div>
             </div>
         </div>
     </section>
