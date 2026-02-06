@@ -53,70 +53,55 @@
             border: 1px solid rgba(255, 77, 77, 0.2); border-radius: 50px;
             display: flex; justify-content: space-around; padding: 12px; z-index: 9999;
         }
-        .nav-item { text-decoration: none; color: var(--text-dark); display: flex; flex-direction: column; align-items: center; font-size: 0.65rem; font-weight: 700; transition: 0.3s; }
+        .nav-item { text-decoration: none; color: var(--text-dark); display: flex; flex-direction: column; align-items: center; font-size: 0.65rem; font-weight: 700; }
         .nav-item i { color: var(--primary-red); margin-bottom: 4px; font-size: 1.2rem; }
-        .nav-item:active { transform: scale(0.9); }
 
         /* --- SECTIONS --- */
-        section { padding: 80px 20px; min-height: 100vh; overflow: hidden; }
-        .section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; font-weight: 800; color: var(--primary-red); }
+        section { padding: 80px 20px; min-height: 100vh; }
+        .section-title { text-align: center; font-size: 1.8rem; margin-bottom: 40px; font-weight: 800; color: var(--primary-red); }
 
         /* --- LAYANAN --- */
         .service-grid { display: grid; gap: 15px; }
-        .service-card { 
-            background: var(--white); padding: 30px 20px; border-radius: 25px; 
-            border-bottom: 5px solid var(--primary-red); box-shadow: var(--shadow); 
-            text-align: center; transition: 0.4s;
-        }
-        .service-card:hover { transform: translateY(-10px); }
-        .service-card i { font-size: 3rem; color: var(--primary-red); margin-bottom: 15px; display: block; }
+        .service-card { background: var(--white); padding: 25px; border-radius: 20px; border-bottom: 4px solid var(--primary-red); box-shadow: var(--shadow); text-align: center; }
+        .service-card i { font-size: 2.5rem; color: var(--primary-red); margin-bottom: 15px; display: block; }
 
-        /* --- PAKET HARGA --- */
-        .price-card { 
-            background: var(--white); padding: 40px 25px; border-radius: 35px; 
-            margin-bottom: 30px; box-shadow: var(--shadow); border: 1px solid #ffebeb; 
-            position: relative; text-align: center;
-        }
-        .featured-price { border: 3px solid var(--primary-red); }
-        .price-tag { font-size: 2.8rem; font-weight: 800; color: var(--text-dark); margin: 15px 0; }
-        .price-list { list-style: none; text-align: left; font-size: 0.9rem; color: var(--text-light); }
-        .price-list li { margin-bottom: 12px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #f9f9f9; padding-bottom: 10px; }
-        .price-list li i { color: #2ecc71; font-size: 1.1rem; }
+        /* --- PAKET HARGA (DETAILED) --- */
+        .price-card { background: var(--white); padding: 35px 25px; border-radius: 30px; margin-bottom: 25px; box-shadow: var(--shadow); border: 1px solid #ffebeb; position: relative; }
+        .featured-price { border: 2.5px solid var(--primary-red); transform: scale(1.02); }
+        .price-tag { font-size: 2.5rem; font-weight: 800; color: var(--text-dark); margin: 15px 0; }
+        .price-list { list-style: none; text-align: left; font-size: 0.85rem; color: var(--text-light); }
+        .price-list li { margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; border-bottom: 1px solid #f9f9f9; padding-bottom: 8px; }
+        .price-list li i { color: #2ecc71; margin-top: 3px; }
 
         /* --- PORTOFOLIO --- */
-        .p-grid { display: grid; gap: 12px; }
+        .p-grid { display: grid; gap: 10px; }
         .p-link { 
-            background: var(--white); padding: 18px; border-radius: 15px;
-            text-decoration: none; color: var(--text-light); font-size: 0.85rem;
-            border-left: 5px solid var(--primary-red); display: flex; justify-content: space-between;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: 0.3s;
+            background: var(--white); padding: 15px; border-radius: 12px;
+            text-decoration: none; color: var(--text-light); font-size: 0.8rem;
+            border-left: 4px solid var(--primary-red); display: flex; justify-content: space-between;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
-        .p-link:hover { background: var(--soft-red); padding-left: 25px; }
 
         /* --- TESTIMONI --- */
         .testi-slider { overflow: hidden; padding: 20px 0; }
         .testi-track { display: flex; animation: scrollTesti 25s linear infinite; }
-        .testi-box { min-width: 300px; background: var(--white); padding: 30px; border-radius: 25px; margin-right: 20px; box-shadow: var(--shadow); }
+        .testi-box { min-width: 280px; background: var(--white); padding: 25px; border-radius: 20px; margin-right: 20px; box-shadow: var(--shadow); }
         @keyframes scrollTesti { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* --- FORM --- */
-        .order-form { 
-            background: var(--white); padding: 45px 30px; border-radius: 40px; 
-            box-shadow: 0 25px 50px rgba(0,0,0,0.05); margin-bottom: 100px;
-        }
+        .order-form { background: var(--white); padding: 40px 25px; border-radius: 35px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); margin-bottom: 80px; }
         .order-form input, .order-form select, .order-form textarea {
-            width: 100%; padding: 18px; margin-bottom: 15px; border-radius: 15px;
-            border: 1px solid #eee; background: #fafafa; font-family: inherit; font-size: 1rem; transition: 0.3s;
+            width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px;
+            border: 1px solid #eee; background: #fafafa; font-family: inherit; font-size: 1rem;
         }
-        .order-form input:focus { border-color: var(--primary-red); background: #fff; }
     </style>
 </head>
 <body>
 
     <header class="hero">
-        <div data-aos="zoom-in" data-aos-duration="1000">
+        <div data-aos="zoom-in">
             <div class="typing-container"><h1 class="typing-text">Jasa Web &<br>Aplikasi.</h1></div>
-            <p style="color:var(--text-light); margin: 20px 0 40px;">Solusi Digital Mewah dengan Teknologi Terkini 2026.</p>
+            <p style="color:var(--text-light); margin-bottom:30px;">Solusi Digital Mewah dengan Teknologi Terkini 2026.</p>
             <a href="#order" class="btn-main">Konsultasi Sekarang</a>
         </div>
     </header>
@@ -125,43 +110,61 @@
         <a href="#layanan" class="nav-item"><i class="fa-solid fa-layer-group"></i><span>Layanan</span></a>
         <a href="#pricing" class="nav-item"><i class="fa-solid fa-tags"></i><span>Harga</span></a>
         <a href="#project" class="nav-item"><i class="fa-solid fa-laptop-code"></i><span>Proyek</span></a>
-        <a href="https://wa.me/6287825508189" class="nav-item"><i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span></a>
+        <a href="https://wa.me/6287825508189" class="nav-item"><i class="fa-brands fa-whatsapp"></i><span>Chat</span></a>
     </nav>
 
     <section id="layanan">
         <h2 class="section-title" data-aos="fade-up">Layanan Kami</h2>
         <div class="service-grid">
-            <div class="service-card" data-aos="fade-right" data-aos-delay="100"><i class="fa-solid fa-globe"></i><h3>Jasa Website</h3><p>Landing page & Company Profile profesional.</p></div>
-            <div class="service-card" data-aos="fade-left" data-aos-delay="200"><i class="fa-solid fa-code"></i><h3>Aplikasi Web</h3><p>Sistem ERP, CRM, & Dashboard Kustom Bisnis.</p></div>
-            <div class="service-card" data-aos="fade-right" data-aos-delay="300"><i class="fa-solid fa-mobile-screen-button"></i><h3>Aplikasi Android</h3><p>Build App Android/iOS siap publish Playstore.</p></div>
-            <div class="service-card" data-aos="fade-left" data-aos-delay="400"><i class="fa-solid fa-chart-line"></i><h3>Digital Marketing</h3><p>Iklan FB Ads, IG Ads, & Google Ads Tertarget.</p></div>
+            <div class="service-card" data-aos="fade-right"><i class="fa-solid fa-globe"></i><h3>Jasa Website</h3><p>Landing page & Company Profile profesional.</p></div>
+            <div class="service-card" data-aos="fade-left"><i class="fa-solid fa-code"></i><h3>Aplikasi Web</h3><p>Sistem ERP, CRM, & Dashboard Kustom Bisnis.</p></div>
+            <div class="service-card" data-aos="fade-right"><i class="fa-solid fa-mobile-screen-button"></i><h3>Aplikasi Android</h3><p>Build App Android/iOS siap publish Playstore.</p></div>
+            <div class="service-card" data-aos="fade-left"><i class="fa-solid fa-chart-line"></i><h3>Digital Marketing</h3><p>Iklan FB Ads, IG Ads, & Google Ads Tertarget.</p></div>
         </div>
     </section>
 
     <section id="pricing">
         <h2 class="section-title" data-aos="fade-up">Paket Harga</h2>
         
-        <div class="price-card" data-aos="flip-left" data-aos-duration="1000">
-            <h3 style="color:var(--primary-red)">PAKET STARTER</h3>
+        <div class="price-card" data-aos="fade-up">
+            <h3 style="color:var(--primary-red)">STARTER PACK</h3>
             <div class="price-tag">650K<span style="font-size:1rem; color:#999;">/Thn</span></div>
             <ul class="price-list">
-                <li><i class="fa-solid fa-circle-check"></i> 1 Halaman Landing Page</li>
-                <li><i class="fa-solid fa-circle-check"></i> Domain .com / .id (Gratis)</li>
-                <li><i class="fa-solid fa-circle-check"></i> SSL Certificate & Keamanan</li>
-                <li><i class="fa-solid fa-circle-check"></i> Cloud Hosting 500MB</li>
-                <li><i class="fa-solid fa-circle-check"></i> Integrasi Chat WhatsApp</li>
+                <li><i class="fa-solid fa-circle-check"></i> 1 Halaman Landing Page Eksklusif</li>
+                <li><i class="fa-solid fa-circle-check"></i> Gratis Domain (.com / .id) 1 Thn</li>
+                <li><i class="fa-solid fa-circle-check"></i> Cloud Hosting High Speed 500MB</li>
+                <li><i class="fa-solid fa-circle-check"></i> Keamanan SSL (Gembok Hijau)</li>
+                <li><i class="fa-solid fa-circle-check"></i> Tombol Chat WhatsApp Melayang</li>
+                <li><i class="fa-solid fa-circle-check"></i> Mobile Responsive (Buka di HP Rapi)</li>
+                <li><i class="fa-solid fa-circle-check"></i> Estimasi Pengerjaan 3-5 Hari</li>
             </ul>
         </div>
 
-        <div class="price-card featured-price" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="price-card featured-price" data-aos="fade-up">
             <h3 style="color:var(--primary-red)">BUSINESS PRO</h3>
             <div class="price-tag">1 JUTA<span style="font-size:1rem; color:#999;">/Thn</span></div>
             <ul class="price-list">
-                <li><i class="fa-solid fa-circle-check"></i> Hingga 5 Halaman Website</li>
-                <li><i class="fa-solid fa-circle-check"></i> Hosting High Speed 2GB</li>
-                <li><i class="fa-solid fa-circle-check"></i> 3 Alamat Email Bisnis</li>
-                <li><i class="fa-solid fa-circle-check"></i> Google Maps & SEO Basic</li>
-                <li><i class="fa-solid fa-circle-check"></i> Free Maintenance 1 Tahun</li>
+                <li><i class="fa-solid fa-circle-check"></i> Hingga 5 Halaman Utama</li>
+                <li><i class="fa-solid fa-circle-check"></i> Hosting Unlimited Bandwidth 2GB</li>
+                <li><i class="fa-solid fa-circle-check"></i> 3 Alamat Email Bisnis (@namaweb)</li>
+                <li><i class="fa-solid fa-circle-check"></i> SEO On-Page Dasar (Cepat di Google)</li>
+                <li><i class="fa-solid fa-circle-check"></i> Integrasi Google Maps & Galeri Foto</li>
+                <li><i class="fa-solid fa-circle-check"></i> Gratis Update Konten 1x Sebulan</li>
+                <li><i class="fa-solid fa-circle-check"></i> Prioritas Support Maintenance</li>
+            </ul>
+        </div>
+
+        <div class="price-card" data-aos="fade-up">
+            <h3 style="color:var(--primary-red)">CUSTOM SYSTEM</h3>
+            <div class="price-tag">2.5 JT<span style="font-size:1rem; color:#999;">++</span></div>
+            <ul class="price-list">
+                <li><i class="fa-solid fa-circle-check"></i> Aplikasi Web / Android Sesuai Request</li>
+                <li><i class="fa-solid fa-circle-check"></i> Integrasi Database & Sistem Login</li>
+                <li><i class="fa-solid fa-circle-check"></i> Fitur Dashboard Admin & Laporan</li>
+                <li><i class="fa-solid fa-circle-check"></i> Unlimited Bandwidth & Kapasitas Besar</li>
+                <li><i class="fa-solid fa-circle-check"></i> Penyerahan Full Source Code</li>
+                <li><i class="fa-solid fa-circle-check"></i> Garansi Bebas Bug 6 Bulan</li>
+                <li><i class="fa-solid fa-circle-check"></i> Training Penggunaan Hingga Bisa</li>
             </ul>
         </div>
     </section>
@@ -169,57 +172,56 @@
     <section id="project">
         <h2 class="section-title" data-aos="fade-up">Portofolio</h2>
         <div class="p-grid">
-            <a href="http://www.foodcompassindonesia.com" class="p-link" data-aos="fade-up" data-aos-delay="50">foodcompassindonesia.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.pt-das.co.id" class="p-link" data-aos="fade-up" data-aos-delay="100">pt-das.co.id <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.panganmitbahtera.com" class="p-link" data-aos="fade-up" data-aos-delay="150">panganmitrabahtera.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.sk-studio17.com" class="p-link" data-aos="fade-up" data-aos-delay="200">sk-studio17.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.furnitureabid.com" class="p-link" data-aos="fade-up" data-aos-delay="250">furnitureabid.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.tulusrekayasateknik.com" class="p-link" data-aos="fade-up" data-aos-delay="300">tulusrekayasateknik.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.sahabattravel.com" class="p-link" data-aos="fade-up" data-aos-delay="350">sahabattravel.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.tokita.store" class="p-link" data-aos="fade-up" data-aos-delay="400">tokita.store <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.tendalipatherculles.com" class="p-link" data-aos="fade-up" data-aos-delay="450">tendalipatherculles.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.cvmenaraabadi.online" class="p-link" data-aos="fade-up" data-aos-delay="500">cvmenaraabadi.online <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.foodcompassindonesia.com" class="p-link" data-aos="fade-up">foodcompassindonesia.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.pt-das.co.id" class="p-link" data-aos="fade-up">pt-das.co.id <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.panganmitrabahtera.com" class="p-link" data-aos="fade-up">panganmitrabahtera.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.sk-studio17.com" class="p-link" data-aos="fade-up">sk-studio17.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.furnitureabid.com" class="p-link" data-aos="fade-up">furnitureabid.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.tulusrekayasateknik.com" class="p-link" data-aos="fade-up">tulusrekayasateknik.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.sahabattravel.com" class="p-link" data-aos="fade-up">sahabattravel.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.tokita.store" class="p-link" data-aos="fade-up">tokita.store <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.tendalipatherculles.com" class="p-link" data-aos="fade-up">tendalipatherculles.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.cvmenaraabadi.online" class="p-link" data-aos="fade-up">cvmenaraabadi.online <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.tamankami-plant.com" class="p-link" data-aos="fade-up">tamankami-plant.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.sahabatwisata.com" class="p-link" data-aos="fade-up">sahabatwisata.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.caption-home.com" class="p-link" data-aos="fade-up">caption-home.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.womfinancemultiguna.com" class="p-link" data-aos="fade-up">womfinancemultiguna.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.briobatam.com" class="p-link" data-aos="fade-up">briobatam.com <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </section>
 
     <section id="testi">
         <h2 class="section-title" data-aos="fade-up">Apa Kata Mereka</h2>
-        <div class="testi-slider" data-aos="fade-in" data-aos-duration="1500">
+        <div class="testi-slider">
             <div class="testi-track">
-                <div class="testi-box"><strong>Sari P.</strong><p>"Web landing pagenya sangat elegan, omzet bisnis naik!"</p></div>
-                <div class="testi-box"><strong>Budi S.</strong><p>"Sistem kustomnya sangat membantu stok barang kami."</p></div>
-                <div class="testi-box"><strong>Andi M.</strong><p>"Ads-nya tertarget sekali. Chat masuk terus tiap hari."</p></div>
-                <div class="testi-box"><strong>Sari P.</strong><p>"Web landing pagenya sangat elegan, omzet bisnis naik!"</p></div>
-                <div class="testi-box"><strong>Budi S.</strong><p>"Sistem kustomnya sangat membantu stok barang kami."</p></div>
+                <div class="testi-box"><strong>Sari P.</strong><p>"Webnya sangat elegan, omzet naik!"</p></div>
+                <div class="testi-box"><strong>Budi S.</strong><p>"Sistem kustomnya sangat membantu bisnis kami."</p></div>
+                <div class="testi-box"><strong>Andi M.</strong><p>"Ads-nya mantap, chat masuk terus!"</p></div>
+                <div class="testi-box"><strong>Sari P.</strong><p>"Webnya sangat elegan, omzet naik!"</p></div>
+                <div class="testi-box"><strong>Budi S.</strong><p>"Sistem kustomnya sangat membantu bisnis kami."</p></div>
             </div>
         </div>
     </section>
 
     <section id="order">
         <h2 class="section-title" data-aos="fade-up">Form Order</h2>
-        <div class="order-form" data-aos="zoom-in-up" data-aos-duration="800">
+        <div class="order-form" data-aos="zoom-in">
             <input type="text" id="nama" placeholder="Nama Lengkap / Bisnis">
             <select id="paket">
                 <option value="Starter (650K)">Paket Starter - 650K</option>
                 <option value="Business Pro (1 Juta)">Paket Business Pro - 1 Juta</option>
-                <option value="Custom">Custom System / Ads</option>
+                <option value="Custom App">Custom System / Ads</option>
             </select>
             <input type="text" id="domain" placeholder="Rencana Nama Domain">
             <textarea id="pesan" rows="4" placeholder="Jelaskan kebutuhan Anda..."></textarea>
-            <button onclick="kirimWA()" class="btn-main" style="width:100%;">Kirim Sekarang</button>
+            <button onclick="kirimWA()" class="btn-main" style="width:100%;">Kirim Via WhatsApp</button>
         </div>
-        <p style="text-align:center; color:#999; font-size:0.7rem; margin-top:-50px;">📍 Bekasi, Jawa Barat | © 2026 Jasa Web & Apps</p>
+        <p style="text-align:center; color:#999; font-size:0.7rem;">© 2026 Jasa Web & Apps</p>
     </section>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Inisialisasi Animasi
-        AOS.init({
-            duration: 800,
-            once: false, // Animasi akan muncul setiap kali di-scroll ulang
-            mirror: true
-        });
-
+        AOS.init({ duration: 800, once: false });
         function kirimWA() {
             const n = document.getElementById('nama').value;
             const pk = document.getElementById('paket').value;
@@ -228,7 +230,7 @@
             if(n && ps) {
                 const txt = `Halo Admin, saya mau order:%0ANama: ${n}%0APaket: ${pk}%0ADomain: ${dm}%0ADetail: ${ps}`;
                 window.open(`https://wa.me/6287825508189?text=${txt}`);
-            } else { alert("Isi Nama dan Pesan Anda."); }
+            } else { alert("Isi Nama dan Pesan."); }
         }
     </script>
 </body>
