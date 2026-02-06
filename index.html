@@ -36,8 +36,16 @@
             background: var(--gradient-red); color: white; padding: 15px 35px;
             border-radius: 50px; text-decoration: none; font-weight: 800;
             display: inline-block; box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
-            border: none; cursor: pointer;
+            border: none; cursor: pointer; text-align: center;
         }
+
+        .btn-select {
+            background: var(--soft-red); color: var(--primary-red);
+            border: 2px solid var(--primary-red); padding: 10px 20px;
+            border-radius: 50px; font-weight: 800; margin-top: 20px;
+            width: 100%; cursor: pointer; transition: 0.3s;
+        }
+        .btn-select:hover { background: var(--primary-red); color: white; }
 
         /* --- NAVIGATION --- */
         .bottom-nav { 
@@ -59,6 +67,9 @@
         .service-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
         .service-card { background: var(--white); padding: 25px; border-radius: 20px; border-bottom: 4px solid var(--primary-red); box-shadow: var(--shadow); text-align: center; }
         .service-card i { font-size: 2.5rem; color: var(--primary-red); margin-bottom: 15px; }
+        .service-card ul { list-style: none; margin-top: 10px; font-size: 0.8rem; color: var(--text-light); text-align: left; display: inline-block; }
+        .service-card ul li { margin-bottom: 5px; }
+        .service-card ul li i { font-size: 0.7rem; margin-right: 5px; margin-bottom: 0; }
 
         /* --- ALUR KERJA --- */
         .step-container { display: flex; flex-direction: column; gap: 20px; }
@@ -67,7 +78,7 @@
         .step-content h4 { color: var(--primary-red); margin-bottom: 5px; }
         .step-content p { font-size: 0.85rem; color: var(--text-light); }
 
-        /* --- PAKET HARGA (RINCI) --- */
+        /* --- PAKET HARGA --- */
         .price-card { background: var(--white); padding: 35px 20px; border-radius: 30px; margin-bottom: 25px; box-shadow: var(--shadow); border: 1px solid #ffebeb; text-align: center; }
         .featured-price { border: 2.5px solid var(--primary-red); transform: scale(1.02); }
         .price-tag { font-size: 2.5rem; font-weight: 800; color: var(--text-dark); margin: 15px 0; }
@@ -84,6 +95,15 @@
         .testi-track { display: flex; animation: scrollTesti 25s linear infinite; width: max-content; }
         .testi-box { min-width: 280px; background: var(--white); padding: 25px; border-radius: 20px; margin-right: 20px; box-shadow: var(--shadow); border-top: 3px solid var(--primary-red); }
         @keyframes scrollTesti { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* --- FAQ --- */
+        .faq-container { display: flex; flex-direction: column; gap: 10px; }
+        .faq-item { background: var(--white); border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.03); border: 1px solid #eee; }
+        .faq-question { padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 700; font-size: 0.85rem; color: var(--text-dark); text-align: left; }
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: all 0.3s ease-out; font-size: 0.8rem; color: var(--text-light); line-height: 1.5; }
+        .faq-item.active .faq-answer { padding: 0 20px 15px 20px; max-height: 300px; }
+        .faq-item i { transition: transform 0.3s; color: var(--primary-red); font-size: 0.8rem; }
+        .faq-item.active i { transform: rotate(180deg); }
 
         /* --- FORM --- */
         .order-form { background: var(--white); padding: 35px 20px; border-radius: 35px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); margin-bottom: 80px; }
@@ -110,10 +130,21 @@
     <section id="layanan">
         <h2 class="section-title" data-aos="fade-up">Layanan Kami</h2>
         <div class="service-grid">
-            <div class="service-card" data-aos="fade-up"><i class="fa-solid fa-globe"></i><h3>Jasa Website</h3><p>Landing page,  Company Profile Profesional, Online Shop, News Portal, dll.</p></div>
-            <div class="service-card" data-aos="fade-up"><i class="fa-solid fa-code"></i><h3>Custom Apps</h3><p>Sistem ERP, CRM, & Dashboard kustom bisnis.</p></div>
-            <div class="service-card" data-aos="fade-up"><i class="fa-solid fa-mobile-screen-button"></i><h3>Mobile Dev</h3><p>Aplikasi Android & iOS modern.</p></div>
-            <div class="service-card" data-aos="fade-up"><i class="fa-solid fa-bullhorn"></i><h3>Digital Marketing</h3><p>Optimasi Iklan & SEO untuk menaikkan omzet.</p></div>
+            <div class="service-card" data-aos="fade-up">
+                <i class="fa-solid fa-globe"></i>
+                <h3>Semua Jenis Website</h3>
+                <p>Kami membangun segala jenis platform web:</p>
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> <b>Online Shop</b> (Toko Online)</li>
+                    <li><i class="fa-solid fa-check"></i> <b>News Portal</b> (Situs Berita)</li>
+                    <li><i class="fa-solid fa-check"></i> <b>Company Profile</b></li>
+                    <li><i class="fa-solid fa-check"></i> <b>Learning Management</b> (LMS)</li>
+                    <li><i class="fa-solid fa-check"></i> <b>Landing Page & Portfolio</b></li>
+                </ul>
+            </div>
+            <div class="service-card" data-aos="fade-up"><i class="fa-solid fa-code"></i><h3>Custom Apps</h3><p>Sistem ERP, CRM, & Dashboard kustom bisnis sesuai alur kerja Anda.</p></div>
+            <div class="service-card" data-aos="fade-up"><i class="fa-solid fa-mobile-screen-button"></i><h3>Mobile Dev</h3><p>Aplikasi Android & iOS modern menggunakan teknologi terbaru.</p></div>
+            <div class="service-card" data-aos="fade-up"><i class="fa-solid fa-bullhorn"></i><h3>Digital Marketing</h3><p>Optimasi Iklan Ads & SEO untuk menaikkan traffic dan omzet.</p></div>
         </div>
     </section>
 
@@ -121,9 +152,9 @@
         <h2 class="section-title" data-aos="fade-up">Alur Kerja</h2>
         <div class="step-container">
             <div class="step-card" data-aos="fade-left"><div class="step-num">1</div><div class="step-content"><h4>Discovery</h4><p>Diskusi visi, target, dan fitur utama yang dibutuhkan.</p></div></div>
-            <div class="step-card" data-aos="fade-left" data-aos-delay="100"><div class="step-num">2</div><div class="step-content"><h4>Design UI/UX</h4><p>Konsep visual mewah dan ramah pengguna (User Friendly).</p></div></div>
-            <div class="step-card" data-aos="fade-left" data-aos-delay="200"><div class="step-num">3</div><div class="step-content"><h4>Development</h4><p>Proses coding dengan teknologi terbaru yang aman & cepat.</p></div></div>
-            <div class="step-card" data-aos="fade-left" data-aos-delay="300"><div class="step-num">4</div><div class="step-content"><h4>Launch</h4><p>Uji coba perangkat & website resmi online ke publik.</p></div></div>
+            <div class="step-card" data-aos="fade-left" data-aos-delay="100"><div class="step-num">2</div><div class="step-content"><h4>Design UI/UX</h4><p>Konsep visual mewah dan ramah pengguna.</p></div></div>
+            <div class="step-card" data-aos="fade-left" data-aos-delay="200"><div class="step-num">3</div><div class="step-content"><h4>Development</h4><p>Proses coding dengan teknologi terbaru yang aman.</p></div></div>
+            <div class="step-card" data-aos="fade-left" data-aos-delay="300"><div class="step-num">4</div><div class="step-content"><h4>Launch</h4><p>Uji coba perangkat & website resmi online.</p></div></div>
         </div>
     </section>
 
@@ -140,6 +171,7 @@
                 <li><i class="fa-solid fa-check-circle"></i> Chat WhatsApp & Mobile Responsive</li>
                 <li><i class="fa-solid fa-check-circle"></i> Maksimal 2x Revisi Desain</li>
             </ul>
+            <button class="btn-select" onclick="selectPackage('Starter')">Pilih Paket Starter</button>
         </div>
 
         <div class="price-card featured-price" data-aos="zoom-in">
@@ -152,6 +184,7 @@
                 <li><i class="fa-solid fa-check-circle"></i> Maintenance Gratis Selama 1 Thn</li>
                 <li><i class="fa-solid fa-check-circle"></i> Maksimal 5x Revisi Desain</li>
             </ul>
+            <button class="btn-select" style="background:var(--primary-red); color:white;" onclick="selectPackage('Business')">Pilih Paket Business</button>
         </div>
 
         <div class="price-card" data-aos="zoom-in">
@@ -164,6 +197,7 @@
                 <li><i class="fa-solid fa-check-circle"></i> Garansi Maintenance 6 Bulan</li>
                 <li><i class="fa-solid fa-check-circle"></i> Free Training & Unlimited Revisi</li>
             </ul>
+            <button class="btn-select" onclick="selectPackage('Custom App')">Pilih Paket Custom</button>
         </div>
     </section>
 
@@ -202,32 +236,17 @@
         </div>
     </section>
 
-    <section id="order">
-        <h2 class="section-title" data-aos="fade-up">Form Order</h2>
-        <div class="order-form">
-            <input type="text" id="nama" placeholder="Nama / Bisnis">
-            <select id="paket">
-                <option value="Starter">Paket Starter - 650K</option>
-                <option value="Business">Paket Business - 1 Juta</option>
-                <option value="Custom App">Custom App - 2.5 JT++</option>
-            </select>
-            <textarea id="pesan" rows="3" placeholder="Kebutuhan Anda..."></textarea>
-            <button onclick="kirimWA()" class="btn-main" style="width:100%;">Kirim Pesan</button>
-        </div>
-        <p style="text-align:center; color:#999; font-size:0.7rem; padding-bottom:50px;">© 2026 Jasa Web & Apps.</p>
-    </section>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true });
-        function kirimWA() {
-            const n = document.getElementById('nama').value;
-            const pk = document.getElementById('paket').value;
-            const ps = document.getElementById('pesan').value;
-            if(n && ps) {
-                window.open(`https://wa.me/6287825508189?text=Halo Admin, saya ${n} ingin order ${pk}. Detail: ${ps}`);
-            } else { alert("Mohon lengkapi Nama dan Pesan."); }
-        }
-    </script>
-</body>
-</html>
+    <section id="faq">
+        <h2 class="section-title" data-aos="fade-up">FAQ (Tanya Jawab)</h2>
+        <div class="faq-container">
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Berapa lama waktu pengerjaan website? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Rata-rata 1-2 hari kerja untuk website dan 1-2 minggu untuk sistem aplikasi kustom.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Apakah harga sudah termasuk domain dan hosting? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Ya, paket Starter dan Business sudah include domain .com/.id dan hosting selama 1 tahun.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Apakah saya bisa mengubah konten sendiri? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Bisa. Kami memberikan akses dashboard admin yang mudah digunakan tanpa perlu skill coding.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Apakah website aman dari hacker? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Kami memasang SSL Certificate dan sistem keamanan dasar untuk meminimalisir risiko serangan.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Apa itu SEO? Apakah website saya muncul di Google? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">SEO membantu web muncul di pencarian. Paket Business sudah termasuk optimasi SEO dasar.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Bisa bantu buatkan logo juga? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Bisa, kami menyediakan jasa desain logo sebagai layanan tambahan atau bundle paket tertentu.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Apakah ada biaya bulanan? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Tidak ada biaya bulanan. Biaya perpanjangan domain & hosting dilakukan setahun sekali.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Bagaimana jika terjadi error di kemudian hari? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Kami memberikan garansi maintenance dan bantuan teknis jika terjadi kendala pada sistem kami.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Apakah website support tampilan HP? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Tentu. Semua produk kami 100% Mobile Responsive.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Bisa integrasi dengan WhatsApp otomatis? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Sangat bisa. Kami pasangkan tombol chat langsung ke WhatsApp bisnis Anda.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><di
