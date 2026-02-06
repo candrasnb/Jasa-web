@@ -16,62 +16,59 @@
             --text-dark: #2d3436;
             --text-light: #636e72;
             --white: #ffffff;
-            --shadow: 0 15px 35px rgba(255, 77, 77, 0.1);
+            --shadow: 0 10px 30px rgba(255, 77, 77, 0.1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--soft-red); color: var(--text-dark); overflow-x: hidden; scroll-behavior: smooth; }
+        html, body { max-width: 100%; overflow-x: hidden; width: 100%; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--soft-red); color: var(--text-dark); scroll-behavior: smooth; }
 
         /* --- HERO --- */
         .hero { 
-            height: 100vh; width: 100%; display: flex; flex-direction: column;
+            min-height: 100vh; width: 100%; display: flex; flex-direction: column;
             align-items: center; justify-content: center; text-align: center;
             padding: 20px; background: radial-gradient(circle at top right, #fff, var(--soft-red));
         }
-        .typing-container { min-height: 80px; }
-        .typing-text {
-            display: inline-block; overflow: hidden; white-space: nowrap;
-            border-right: 3px solid var(--primary-red); width: 0;
-            animation: typing 3s steps(20, end) forwards, blink 0.75s step-end infinite;
-            font-size: 2.2rem; font-weight: 800; color: var(--primary-red);
-        }
-        @keyframes typing { from { width: 0 } to { width: 100% } }
-        @keyframes blink { from, to { border-color: transparent } 50% { border-color: var(--primary-red) } }
+        .typing-text { font-size: 10vw; font-weight: 800; color: var(--primary-red); line-height: 1.2; }
+        @media (min-width: 600px) { .typing-text { font-size: 3.5rem; } }
 
         .btn-main {
-            background: var(--gradient-red); color: white; padding: 15px 40px;
+            background: var(--gradient-red); color: white; padding: 15px 35px;
             border-radius: 50px; text-decoration: none; font-weight: 800;
             display: inline-block; box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
-            animation: pulse-red 2s infinite; border: none; cursor: pointer;
+            border: none; cursor: pointer;
         }
-        @keyframes pulse-red { 0% { transform: scale(1); } 70% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
         /* --- NAVIGATION --- */
         .bottom-nav { 
-            position: fixed; bottom: 15px; left: 5%; width: 90%;
-            background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px);
+            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 400px;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 77, 77, 0.2); border-radius: 50px;
-            display: flex; justify-content: space-around; padding: 12px; z-index: 9999;
+            display: flex; justify-content: space-around; padding: 10px; z-index: 9999;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-        .nav-item { text-decoration: none; color: var(--text-dark); display: flex; flex-direction: column; align-items: center; font-size: 0.65rem; font-weight: 700; }
+        .nav-item { text-decoration: none; color: var(--text-dark); display: flex; flex-direction: column; align-items: center; font-size: 0.65rem; font-weight: 700; flex: 1; }
         .nav-item i { color: var(--primary-red); margin-bottom: 4px; font-size: 1.2rem; }
 
         /* --- SECTIONS --- */
-        section { padding: 80px 20px; min-height: 100vh; }
-        .section-title { text-align: center; font-size: 1.8rem; margin-bottom: 40px; font-weight: 800; color: var(--primary-red); }
+        section { padding: 60px 15px; width: 100%; }
+        .section-title { text-align: center; font-size: 1.8rem; margin-bottom: 30px; font-weight: 800; color: var(--primary-red); }
 
         /* --- LAYANAN --- */
-        .service-grid { display: grid; gap: 15px; }
+        .service-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
         .service-card { background: var(--white); padding: 25px; border-radius: 20px; border-bottom: 4px solid var(--primary-red); box-shadow: var(--shadow); text-align: center; }
-        .service-card i { font-size: 2.5rem; color: var(--primary-red); margin-bottom: 15px; display: block; }
+        .service-card i { font-size: 2.5rem; color: var(--primary-red); margin-bottom: 15px; }
 
         /* --- ALUR KERJA --- */
-        .step-container { display: flex; flex-direction: column; gap: 20px; position: relative; }
-        .step-card { background: var(--white); padding: 20px; border-radius: 20px; display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow); }
+        .step-container { display: flex; flex-direction: column; gap: 20px; }
+        .step-card { background: var(--white); padding: 20px; border-radius: 20px; display: flex; gap: 15px; box-shadow: var(--shadow); }
         .step-num { background: var(--gradient-red); color: white; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; flex-shrink: 0; }
+        .step-content h4 { color: var(--primary-red); margin-bottom: 5px; }
+        .step-content p { font-size: 0.85rem; color: var(--text-light); }
 
-        /* --- PAKET HARGA --- */
-        .price-card { background: var(--white); padding: 35px 25px; border-radius: 30px; margin-bottom: 25px; box-shadow: var(--shadow); border: 1px solid #ffebeb; position: relative; text-align: center; }
+        /* --- PAKET HARGA (RINCI) --- */
+        .price-card { background: var(--white); padding: 35px 20px; border-radius: 30px; margin-bottom: 25px; box-shadow: var(--shadow); border: 1px solid #ffebeb; text-align: center; }
         .featured-price { border: 2.5px solid var(--primary-red); transform: scale(1.02); }
         .price-tag { font-size: 2.5rem; font-weight: 800; color: var(--text-dark); margin: 15px 0; }
         .price-list { list-style: none; text-align: left; font-size: 0.85rem; color: var(--text-light); }
@@ -79,34 +76,26 @@
         .price-list li i { color: #2ecc71; margin-top: 3px; }
 
         /* --- PORTOFOLIO --- */
-        .p-grid { display: grid; gap: 10px; }
-        .p-link { 
-            background: var(--white); padding: 15px; border-radius: 12px;
-            text-decoration: none; color: var(--text-light); font-size: 0.8rem;
-            border-left: 4px solid var(--primary-red); display: flex; justify-content: space-between;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-        }
+        .p-grid { display: grid; gap: 8px; }
+        .p-link { background: var(--white); padding: 15px; border-radius: 12px; text-decoration: none; color: var(--text-light); font-size: 0.75rem; border-left: 4px solid var(--primary-red); display: flex; justify-content: space-between; box-shadow: 0 4px 6px rgba(0,0,0,0.02); word-break: break-all; }
 
         /* --- TESTIMONI --- */
-        .testi-slider { overflow: hidden; padding: 20px 0; }
-        .testi-track { display: flex; animation: scrollTesti 25s linear infinite; }
-        .testi-box { min-width: 280px; background: var(--white); padding: 25px; border-radius: 20px; margin-right: 20px; box-shadow: var(--shadow); }
+        .testi-slider { overflow: hidden; padding: 20px 0; width: 100%; }
+        .testi-track { display: flex; animation: scrollTesti 25s linear infinite; width: max-content; }
+        .testi-box { min-width: 280px; background: var(--white); padding: 25px; border-radius: 20px; margin-right: 20px; box-shadow: var(--shadow); border-top: 3px solid var(--primary-red); }
         @keyframes scrollTesti { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* --- FORM --- */
-        .order-form { background: var(--white); padding: 40px 25px; border-radius: 35px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); margin-bottom: 80px; }
-        .order-form input, .order-form select, .order-form textarea {
-            width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px;
-            border: 1px solid #eee; background: #fafafa; font-family: inherit; font-size: 1rem;
-        }
+        .order-form { background: var(--white); padding: 35px 20px; border-radius: 35px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); margin-bottom: 80px; }
+        .order-form input, .order-form select, .order-form textarea { width: 100%; padding: 15px; margin-bottom: 15px; border-radius: 12px; border: 1px solid #eee; background: #fafafa; font-family: inherit; font-size: 1rem; }
     </style>
 </head>
 <body>
 
     <header class="hero">
         <div data-aos="zoom-in">
-            <div class="typing-container"><h1 class="typing-text">Jasa Web &<br>Aplikasi.</h1></div>
-            <p style="color:var(--text-light); margin-bottom:30px;">Solusi Digital Mewah dengan Teknologi Terkini 2026.</p>
+            <h1 class="typing-text">Jasa Web &<br>Aplikasi.</h1>
+            <p style="color:var(--text-light); margin: 20px 0 30px; font-size: 0.9rem;">Solusi Digital Mewah & Responsif 2026.</p>
             <a href="#order" class="btn-main">Konsultasi Sekarang</a>
         </div>
     </header>
@@ -121,69 +110,59 @@
     <section id="layanan">
         <h2 class="section-title" data-aos="fade-up">Layanan Kami</h2>
         <div class="service-grid">
-            <div class="service-card" data-aos="fade-right"><i class="fa-solid fa-globe"></i><h3>Jasa Website</h3><p>Landing page & Company Profile profesional.</p></div>
-            <div class="service-card" data-aos="fade-left"><i class="fa-solid fa-code"></i><h3>Aplikasi Web</h3><p>Sistem ERP, CRM, & Dashboard Kustom Bisnis.</p></div>
-            <div class="service-card" data-aos="fade-right"><i class="fa-solid fa-mobile-screen-button"></i><h3>Aplikasi Android</h3><p>Build App Android/iOS siap publish Playstore.</p></div>
-            <div class="service-card" data-aos="fade-left"><i class="fa-solid fa-chart-line"></i><h3>Digital Marketing</h3><p>Iklan FB Ads, IG Ads, & Google Ads Tertarget.</p></div>
+            <div class="service-card" data-aos="fade-up"><i class="fa-solid fa-globe"></i><h3>Jasa Website</h3><p>Landing page,  Company Profile Profesional, Online Shop, News Portal, dll.</p></div>
+            <div class="service-card" data-aos="fade-up"><i class="fa-solid fa-code"></i><h3>Custom Apps</h3><p>Sistem ERP, CRM, & Dashboard kustom bisnis.</p></div>
+            <div class="service-card" data-aos="fade-up"><i class="fa-solid fa-mobile-screen-button"></i><h3>Mobile Dev</h3><p>Aplikasi Android & iOS modern.</p></div>
+            <div class="service-card" data-aos="fade-up"><i class="fa-solid fa-bullhorn"></i><h3>Digital Marketing</h3><p>Optimasi Iklan & SEO untuk menaikkan omzet.</p></div>
         </div>
     </section>
 
     <section id="alur">
         <h2 class="section-title" data-aos="fade-up">Alur Kerja</h2>
         <div class="step-container">
-            <div class="step-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="step-num">1</div>
-                <div><strong>Konsultasi</strong><p style="font-size:0.8rem; color:var(--text-light);">Diskusi kebutuhan & target bisnis Anda.</p></div>
-            </div>
-            <div class="step-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="step-num">2</div>
-                <div><strong>Perencanaan</strong><p style="font-size:0.8rem; color:var(--text-light);">Pemilihan paket, domain, & konsep desain.</p></div>
-            </div>
-            <div class="step-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="step-num">3</div>
-                <div><strong>Development</strong><p style="font-size:0.8rem; color:var(--text-light);">Proses coding & perakitan sistem aplikasi.</p></div>
-            </div>
-            <div class="step-card" data-aos="fade-up" data-aos-delay="400">
-                <div class="step-num">4</div>
-                <div><strong>Launching</strong><p style="font-size:0.8rem; color:var(--text-light);">Quality control & website siap online!</p></div>
-            </div>
+            <div class="step-card" data-aos="fade-left"><div class="step-num">1</div><div class="step-content"><h4>Discovery</h4><p>Diskusi visi, target, dan fitur utama yang dibutuhkan.</p></div></div>
+            <div class="step-card" data-aos="fade-left" data-aos-delay="100"><div class="step-num">2</div><div class="step-content"><h4>Design UI/UX</h4><p>Konsep visual mewah dan ramah pengguna (User Friendly).</p></div></div>
+            <div class="step-card" data-aos="fade-left" data-aos-delay="200"><div class="step-num">3</div><div class="step-content"><h4>Development</h4><p>Proses coding dengan teknologi terbaru yang aman & cepat.</p></div></div>
+            <div class="step-card" data-aos="fade-left" data-aos-delay="300"><div class="step-num">4</div><div class="step-content"><h4>Launch</h4><p>Uji coba perangkat & website resmi online ke publik.</p></div></div>
         </div>
     </section>
 
     <section id="pricing">
         <h2 class="section-title" data-aos="fade-up">Paket Harga</h2>
-        <div class="price-card" data-aos="fade-up">
+        
+        <div class="price-card" data-aos="zoom-in">
             <h3 style="color:var(--primary-red)">STARTER PACK</h3>
             <div class="price-tag">650K<span style="font-size:1rem; color:#999;">/Thn</span></div>
             <ul class="price-list">
-                <li><i class="fa-solid fa-circle-check"></i> 1 Halaman Landing Page Eksklusif</li>
-                <li><i class="fa-solid fa-circle-check"></i> Gratis Domain (.com / .id) 1 Thn</li>
-                <li><i class="fa-solid fa-circle-check"></i> Cloud Hosting High Speed 500MB</li>
-                <li><i class="fa-solid fa-circle-check"></i> Keamanan SSL (Gembok Hijau)</li>
-                <li><i class="fa-solid fa-circle-check"></i> Tombol Chat WhatsApp Melayang</li>
+                <li><i class="fa-solid fa-check-circle"></i> 1 Halaman Landing Page Mewah</li>
+                <li><i class="fa-solid fa-check-circle"></i> Domain .com/.id (1 Thn) & SSL</li>
+                <li><i class="fa-solid fa-check-circle"></i> Hosting 500MB SSD & Bandwidth</li>
+                <li><i class="fa-solid fa-check-circle"></i> Chat WhatsApp & Mobile Responsive</li>
+                <li><i class="fa-solid fa-check-circle"></i> Maksimal 2x Revisi Desain</li>
             </ul>
         </div>
 
-        <div class="price-card featured-price" data-aos="fade-up">
+        <div class="price-card featured-price" data-aos="zoom-in">
             <h3 style="color:var(--primary-red)">BUSINESS PRO</h3>
             <div class="price-tag">1 JUTA<span style="font-size:1rem; color:#999;">/Thn</span></div>
             <ul class="price-list">
-                <li><i class="fa-solid fa-circle-check"></i> Hingga 5 Halaman Utama</li>
-                <li><i class="fa-solid fa-circle-check"></i> Hosting Unlimited Bandwidth 2GB</li>
-                <li><i class="fa-solid fa-circle-check"></i> 3 Alamat Email Bisnis (@namaweb)</li>
-                <li><i class="fa-solid fa-circle-check"></i> SEO On-Page Dasar & Google Maps</li>
-                <li><i class="fa-solid fa-circle-check"></i> Free Maintenance 1 Tahun</li>
+                <li><i class="fa-solid fa-check-circle"></i> Hingga 5 Halaman Utama</li>
+                <li><i class="fa-solid fa-check-circle"></i> Hosting 2GB NVMe SSD & Backup</li>
+                <li><i class="fa-solid fa-check-circle"></i> 3 Email Bisnis & SEO On-Page</li>
+                <li><i class="fa-solid fa-check-circle"></i> Maintenance Gratis Selama 1 Thn</li>
+                <li><i class="fa-solid fa-check-circle"></i> Maksimal 5x Revisi Desain</li>
             </ul>
         </div>
 
-        <div class="price-card" data-aos="fade-up">
-            <h3 style="color:var(--primary-red)">CUSTOM SYSTEM</h3>
+        <div class="price-card" data-aos="zoom-in">
+            <h3 style="color:var(--primary-red)">CUSTOM APP</h3>
             <div class="price-tag">2.5 JT<span style="font-size:1rem; color:#999;">++</span></div>
             <ul class="price-list">
-                <li><i class="fa-solid fa-circle-check"></i> Full Web/Android System Sesuai Request</li>
-                <li><i class="fa-solid fa-circle-check"></i> Integrasi Database & Sistem Login</li>
-                <li><i class="fa-solid fa-circle-check"></i> Penyerahan Full Source Code</li>
-                <li><i class="fa-solid fa-circle-check"></i> Garansi Bebas Bug 6 Bulan</li>
+                <li><i class="fa-solid fa-check-circle"></i> Sistem Web/Android Sesuai Request</li>
+                <li><i class="fa-solid fa-check-circle"></i> Database Multi-User & Dashboard</li>
+                <li><i class="fa-solid fa-check-circle"></i> Penyerahan Full Source Code</li>
+                <li><i class="fa-solid fa-check-circle"></i> Garansi Maintenance 6 Bulan</li>
+                <li><i class="fa-solid fa-check-circle"></i> Free Training & Unlimited Revisi</li>
             </ul>
         </div>
     </section>
@@ -191,21 +170,21 @@
     <section id="project">
         <h2 class="section-title" data-aos="fade-up">Portofolio</h2>
         <div class="p-grid">
-            <a href="http://www.foodcompassindonesia.com" class="p-link" data-aos="fade-up">foodcompassindonesia.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.pt-das.co.id" class="p-link" data-aos="fade-up">pt-das.co.id <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.panganmitrabahtera.com" class="p-link" data-aos="fade-up">panganmitrabahtera.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.sk-studio17.com" class="p-link" data-aos="fade-up">sk-studio17.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.furnitureabid.com" class="p-link" data-aos="fade-up">furnitureabid.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.tulusrekayasateknik.com" class="p-link" data-aos="fade-up">tulusrekayasateknik.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.sahabattravel.com" class="p-link" data-aos="fade-up">sahabattravel.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.tokita.store" class="p-link" data-aos="fade-up">tokita.store <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.tendalipatherculles.com" class="p-link" data-aos="fade-up">tendalipatherculles.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.cvmenaraabadi.online" class="p-link" data-aos="fade-up">cvmenaraabadi.online <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.tamankami-plant.com" class="p-link" data-aos="fade-up">tamankami-plant.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.sahabatwisata.com" class="p-link" data-aos="fade-up">sahabatwisata.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.caption-home.com" class="p-link" data-aos="fade-up">caption-home.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.womfinancemultiguna.com" class="p-link" data-aos="fade-up">womfinancemultiguna.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.briobatam.com" class="p-link" data-aos="fade-up">briobatam.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.foodcompassindonesia.com" class="p-link">foodcompassindonesia.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.pt-das.co.id" class="p-link">pt-das.co.id <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.panganmitrabahtera.com" class="p-link">panganmitrabahtera.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.sk-studio17.com" class="p-link">sk-studio17.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.furnitureabid.com" class="p-link">furnitureabid.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.tulusrekayasateknik.com" class="p-link">tulusrekayasateknik.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.sahabattravel.com" class="p-link">sahabattravel.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.tokita.store" class="p-link">tokita.store <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.tendalipatherculles.com" class="p-link">tendalipatherculles.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.cvmenaraabadi.online" class="p-link">cvmenaraabadi.online <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.tamankami-plant.com" class="p-link">tamankami-plant.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.sahabatwisata.com" class="p-link">sahabatwisata.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.caption-home.com" class="p-link">caption-home.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.womfinancemultiguna.com" class="p-link">womfinancemultiguna.com <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="http://www.briobatam.com" class="p-link">briobatam.com <i class="fa-solid fa-arrow-right"></i></a>
         </div>
     </section>
 
@@ -213,43 +192,41 @@
         <h2 class="section-title" data-aos="fade-up">Apa Kata Mereka</h2>
         <div class="testi-slider">
             <div class="testi-track">
-                <div class="testi-box"><strong>Sari P.</strong><p>"Webnya sangat elegan, omzet naik!"</p></div>
-                <div class="testi-box"><strong>Budi S.</strong><p>"Sistem kustomnya sangat membantu bisnis."</p></div>
-                <div class="testi-box"><strong>Andi M.</strong><p>"Ads-nya mantap, chat masuk terus!"</p></div>
-                <div class="testi-box"><strong>Sari P.</strong><p>"Webnya sangat elegan, omzet naik!"</p></div>
-                <div class="testi-box"><strong>Budi S.</strong><p>"Sistem kustomnya sangat membantu bisnis."</p></div>
+                <div class="testi-box"><strong>Sari P.</strong><p>"Webnya sangat elegan, omzet bisnis saya naik drastis!"</p></div>
+                <div class="testi-box"><strong>Budi S.</strong><p>"Sistem kustomnya sangat membantu efisiensi kerja tim."</p></div>
+                <div class="testi-box"><strong>Andi M.</strong><p>"Iklan Ads-nya mantap, chat masuk terus setiap hari!"</p></div>
+                <div class="testi-box"><strong>Sari P.</strong><p>"Webnya sangat elegan, omzet bisnis saya naik drastis!"</p></div>
+                <div class="testi-box"><strong>Budi S.</strong><p>"Sistem kustomnya sangat membantu efisiensi kerja tim."</p></div>
+                <div class="testi-box"><strong>Andi M.</strong><p>"Iklan Ads-nya mantap, chat masuk terus setiap hari!"</p></div>
             </div>
         </div>
     </section>
 
     <section id="order">
         <h2 class="section-title" data-aos="fade-up">Form Order</h2>
-        <div class="order-form" data-aos="zoom-in">
-            <input type="text" id="nama" placeholder="Nama Lengkap / Bisnis">
+        <div class="order-form">
+            <input type="text" id="nama" placeholder="Nama / Bisnis">
             <select id="paket">
-                <option value="Starter (650K)">Paket Starter - 650K</option>
-                <option value="Business Pro (1 Juta)">Paket Business Pro - 1 Juta</option>
-                <option value="Custom App">Custom System / Ads</option>
+                <option value="Starter">Paket Starter - 650K</option>
+                <option value="Business">Paket Business - 1 Juta</option>
+                <option value="Custom App">Custom App - 2.5 JT++</option>
             </select>
-            <input type="text" id="domain" placeholder="Rencana Nama Domain">
-            <textarea id="pesan" rows="4" placeholder="Jelaskan kebutuhan Anda..."></textarea>
-            <button onclick="kirimWA()" class="btn-main" style="width:100%;">Kirim Via WhatsApp</button>
+            <textarea id="pesan" rows="3" placeholder="Kebutuhan Anda..."></textarea>
+            <button onclick="kirimWA()" class="btn-main" style="width:100%;">Kirim Pesan</button>
         </div>
-        <p style="text-align:center; color:#999; font-size:0.7rem;">© 2026 Jasa Web & Apps</p>
+        <p style="text-align:center; color:#999; font-size:0.7rem; padding-bottom:50px;">© 2026 Jasa Web & Apps.</p>
     </section>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: false });
+        AOS.init({ duration: 800, once: true });
         function kirimWA() {
             const n = document.getElementById('nama').value;
             const pk = document.getElementById('paket').value;
-            const dm = document.getElementById('domain').value;
             const ps = document.getElementById('pesan').value;
             if(n && ps) {
-                const txt = `Halo Admin, saya mau order:%0ANama: ${n}%0APaket: ${pk}%0ADomain: ${dm}%0ADetail: ${ps}`;
-                window.open(`https://wa.me/6287825508189?text=${txt}`);
-            } else { alert("Isi Nama dan Pesan."); }
+                window.open(`https://wa.me/6287825508189?text=Halo Admin, saya ${n} ingin order ${pk}. Detail: ${ps}`);
+            } else { alert("Mohon lengkapi Nama dan Pesan."); }
         }
     </script>
 </body>
