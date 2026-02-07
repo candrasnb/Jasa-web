@@ -23,21 +23,41 @@
         html, body { max-width: 100%; overflow-x: hidden; width: 100%; }
         body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--soft-red); color: var(--text-dark); scroll-behavior: smooth; }
 
-        /* --- HERO --- */
+        /* --- HERO & ANIMASI CAHAYA --- */
         .hero { 
             min-height: 100vh; width: 100%; display: flex; flex-direction: column;
             align-items: center; justify-content: center; text-align: center;
             padding: 20px; background: radial-gradient(circle at top right, #fff, var(--soft-red));
         }
-        .typing-text { font-size: 10vw; font-weight: 800; color: var(--primary-red); line-height: 1.2; }
+
+        /* INI KODE ANIMASI CAHAYA BERJALAN */
+        .typing-text { 
+            font-size: 10vw; 
+            font-weight: 800; 
+            line-height: 1.2;
+            background: linear-gradient(to right, #ff4d4d 20%, #fff 40%, #fff 60%, #ff4d4d 80%);
+            background-size: 200% auto;
+            color: #ff4d4d;
+            background-clip: text;
+            text-fill-color: transparent;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s linear infinite;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
         @media (min-width: 600px) { .typing-text { font-size: 3.5rem; } }
 
         .btn-main {
             background: var(--gradient-red); color: white; padding: 15px 35px;
             border-radius: 50px; text-decoration: none; font-weight: 800;
             display: inline-block; box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
-            border: none; cursor: pointer; text-align: center;
+            border: none; cursor: pointer; text-align: center; transition: 0.3s;
         }
+        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 15px 25px rgba(255, 77, 77, 0.4); }
 
         .btn-select {
             background: var(--soft-red); color: var(--primary-red);
@@ -65,7 +85,8 @@
 
         /* --- LAYANAN --- */
         .service-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
-        .service-card { background: var(--white); padding: 25px; border-radius: 20px; border-bottom: 4px solid var(--primary-red); box-shadow: var(--shadow); text-align: center; }
+        .service-card { background: var(--white); padding: 25px; border-radius: 20px; border-bottom: 4px solid var(--primary-red); box-shadow: var(--shadow); text-align: center; transition: 0.3s; }
+        .service-card:hover { transform: translateY(-10px); }
         .service-card i { font-size: 2.5rem; color: var(--primary-red); margin-bottom: 15px; }
         .service-card ul { list-style: none; margin-top: 10px; font-size: 0.8rem; color: var(--text-light); text-align: left; display: inline-block; }
         .service-card ul li { margin-bottom: 5px; }
@@ -86,9 +107,20 @@
         .price-list li { margin-bottom: 10px; display: flex; align-items: flex-start; gap: 10px; border-bottom: 1px solid #f9f9f9; padding-bottom: 8px; }
         .price-list li i { color: #2ecc71; margin-top: 3px; }
 
-        /* --- PORTOFOLIO --- */
-        .p-grid { display: grid; gap: 8px; }
-        .p-link { background: var(--white); padding: 15px; border-radius: 12px; text-decoration: none; color: var(--text-light); font-size: 0.75rem; border-left: 4px solid var(--primary-red); display: flex; justify-content: space-between; box-shadow: 0 4px 6px rgba(0,0,0,0.02); word-break: break-all; }
+        /* --- PORTOFOLIO MEWAH (30 SAMPLES) --- */
+        .p-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+        @media (min-width: 768px) { .p-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .p-card { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; text-decoration: none; transition: 0.4s; position: relative; }
+        .p-card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(255, 77, 77, 0.2); }
+        .p-browser-bar { background: #f8f8f8; padding: 6px; display: flex; gap: 4px; border-bottom: 1px solid #eee; }
+        .p-dot { width: 5px; height: 5px; border-radius: 50%; }
+        .p-dot.red { background: #ff5f56; } .p-dot.yellow { background: #ffbd2e; } .p-dot.green { background: #27c93f; }
+        .p-img { width: 100%; aspect-ratio: 4/3; background-size: cover; background-position: center; transition: 0.5s; background-color: #f0f0f0; }
+        .p-card:hover .p-img { scale: 1.1; }
+        .p-desc { padding: 10px; background: white; position: relative; z-index: 2; }
+        .p-desc h4 { font-size: 0.65rem; font-weight: 800; color: #333; margin-bottom: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .p-desc p { font-size: 0.55rem; color: var(--primary-red); font-weight: 700; }
 
         /* --- TESTIMONI --- */
         .testi-slider { overflow: hidden; padding: 20px 0; width: 100%; }
@@ -114,7 +146,7 @@
 
     <header class="hero">
         <div data-aos="zoom-in">
-            <h1 class="typing-text">Jasa Web &<br>Aplikasi.</h1>
+            <h1 class="typing-text">Jasa Website<br>&<br>Aplikasi Custom</h1>
             <p style="color:var(--text-light); margin: 20px 0 30px; font-size: 0.9rem;">Solusi Digital Mewah & Responsif 2026.</p>
             <a href="#order" class="btn-main">Konsultasi Sekarang</a>
         </div>
@@ -202,23 +234,164 @@
     </section>
 
     <section id="project">
-        <h2 class="section-title" data-aos="fade-up">Portofolio</h2>
+        <h2 class="section-title" data-aos="fade-up">Portofolio Kami</h2>
         <div class="p-grid">
-            <a href="http://www.foodcompassindonesia.com" class="p-link">foodcompassindonesia.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.pt-das.co.id" class="p-link">pt-das.co.id <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.panganmitrabahtera.com" class="p-link">panganmitrabahtera.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.sk-studio17.com" class="p-link">sk-studio17.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.furnitureabid.com" class="p-link">furnitureabid.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.tulusrekayasateknik.com" class="p-link">tulusrekayasateknik.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.sahabattravel.com" class="p-link">sahabattravel.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.tokita.store" class="p-link">tokita.store <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.tendalipatherculles.com" class="p-link">tendalipatherculles.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.cvmenaraabadi.online" class="p-link">cvmenaraabadi.online <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.tamankami-plant.com" class="p-link">tamankami-plant.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.sahabatwisata.com" class="p-link">sahabatwisata.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.caption-home.com" class="p-link">caption-home.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.womfinancemultiguna.com" class="p-link">womfinancemultiguna.com <i class="fa-solid fa-arrow-right"></i></a>
-            <a href="http://www.briobatam.com" class="p-link">briobatam.com <i class="fa-solid fa-arrow-right"></i></a>
+            
+            <a href="http://www.pt-das.co.id" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=400')"></div>
+                <div class="p-desc"><h4>pt-das.co.id</h4><p>LOGISTICS ERP</p></div>
+            </a>
+            <a href="http://www.panganmitbahtera.com" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1504386106331-3e4e71712b38?w=400')"></div>
+                <div class="p-desc"><h4>panganmitrabahtera.com</h4><p>COMPANY PROFILE</p></div>
+            </a>
+            <a href="http://www.widjojo.id" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400')"></div>
+                <div class="p-desc"><h4>widjojo.id</h4><p>LEGAL SERVICE</p></div>
+            </a>
+            <a href="http://www.cvmenaraabadi.online" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400')"></div>
+                <div class="p-desc"><h4>cvmenaraabadi.online</h4><p>CONSTRUCTION</p></div>
+            </a>
+            <a href="http://www.tulusrekayasateknik.com" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400')"></div>
+                <div class="p-desc"><h4>tulusrekayasateknik.com</h4><p>ENGINEERING</p></div>
+            </a>
+
+            <a href="http://www.foodcompassindonesia.com" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400')"></div>
+                <div class="p-desc"><h4>foodcompassindonesia.com</h4><p>FOOD DELIVERY</p></div>
+            </a>
+            <a href="http://www.tokita.store" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1468495244122-44a164402371?w=400')"></div>
+                <div class="p-desc"><h4>tokita.store</h4><p>GADGET STORE</p></div>
+            </a>
+            <a href="http://www.furnitureabid.com" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=400')"></div>
+                <div class="p-desc"><h4>furnitureabid.com</h4><p>E-CATALOG</p></div>
+            </a>
+            <a href="http://www.caption-home.com" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1484154218962-a197022b5858?w=400')"></div>
+                <div class="p-desc"><h4>caption-home.com</h4><p>INTERIOR DESIGN</p></div>
+            </a>
+            <a href="http://www.tendalipatherculles.com" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1523381235312-3a1647fa9921?w=400')"></div>
+                <div class="p-desc"><h4>tendalipatherculles.com</h4><p>RETAIL WEB</p></div>
+            </a>
+
+            <a href="http://www.sahabattravel.com" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1500835595337-f74b447a1bb3?w=400')"></div>
+                <div class="p-desc"><h4>sahabattravel.com</h4><p>TRAVEL BOOKING</p></div>
+            </a>
+            <a href="http://www.sahabatwisata.com" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=400')"></div>
+                <div class="p-desc"><h4>sahabatwisata.com</h4><p>TOURISM</p></div>
+            </a>
+            <a href="#" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400')"></div>
+                <div class="p-desc"><h4>Bali Escape</h4><p>TOUR PACKAGE</p></div>
+            </a>
+            <a href="http://www.tamankami-plant.com" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1466781783364-391e5a6df039?w=400')"></div>
+                <div class="p-desc"><h4>tamankami-plant.com</h4><p>PLANT SHOP</p></div>
+            </a>
+            <a href="http://www.briobatam.com" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=400')"></div>
+                <div class="p-desc"><h4>briobatam.com</h4><p>AUTOMOTIVE</p></div>
+            </a>
+
+            <a href="http://www.sk-studio17.com" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1542038784456-1ea8e935640e?w=400')"></div>
+                <div class="p-desc"><h4>sk-studio17.com</h4><p>PHOTOGRAPHY</p></div>
+            </a>
+            <a href="#" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=400')"></div>
+                <div class="p-desc"><h4>EduSmart Portal</h4><p>SCHOOL LMS</p></div>
+            </a>
+            <a href="#" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=400')"></div>
+                <div class="p-desc"><h4>WorkSpace Pro</h4><p>OFFICE SYSTEM</p></div>
+            </a>
+            <a href="#" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400')"></div>
+                <div class="p-desc"><h4>Creative Colab</h4><p>AGENCY WEB</p></div>
+            </a>
+            <a href="http://www.womfinancemultiguna.com" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400')"></div>
+                <div class="p-desc"><h4>womfinancemultiguna.com</h4><p>FINANCE WEB</p></div>
+            </a>
+
+            <a href="#" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400')"></div>
+                <div class="p-desc"><h4>Luxury Fashion</h4><p>E-COMMERCE</p></div>
+            </a>
+            <a href="#" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=400')"></div>
+                <div class="p-desc"><h4>Global Medika</h4><p>HOSPITAL WEB</p></div>
+            </a>
+            <a href="#" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400')"></div>
+                <div class="p-desc"><h4>Fit Life Gym</h4><p>MEMBERSHIP APP</p></div>
+            </a>
+            <a href="#" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400')"></div>
+                <div class="p-desc"><h4>Elite Property</h4><p>REAL ESTATE</p></div>
+            </a>
+            <a href="#" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400')"></div>
+                <div class="p-desc"><h4>Data Analytics</h4><p>DASHBOARD</p></div>
+            </a>
+            <a href="#" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1556742044-3c52d6e88c62?w=400')"></div>
+                <div class="p-desc"><h4>Safe Payment</h4><p>FINTECH WEB</p></div>
+            </a>
+            <a href="#" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1454165833767-027eeef15265?w=400')"></div>
+                <div class="p-desc"><h4>Consultant Pro</h4><p>ADVISORY</p></div>
+            </a>
+            <a href="#" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400')"></div>
+                <div class="p-desc"><h4>Code Dev</h4><p>SOFTWARE HOUSE</p></div>
+            </a>
+            <a href="#" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=400')"></div>
+                <div class="p-desc"><h4>Royal Resto</h4><p>GOURMET WEB</p></div>
+            </a>
+            <a href="#" class="p-card" data-aos="fade-up">
+                <div class="p-browser-bar"><div class="p-dot red"></div><div class="p-dot yellow"></div><div class="p-dot green"></div></div>
+                <div class="p-img" style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400')"></div>
+                <div class="p-desc"><h4>Modern Arch</h4><p>ARCHITECTURE</p></div>
+            </a>
+
         </div>
     </section>
 
@@ -239,7 +412,7 @@
     <section id="faq">
         <h2 class="section-title" data-aos="fade-up">FAQ (Tanya Jawab)</h2>
         <div class="faq-container">
-            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Berapa lama waktu pengerjaan website? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Rata-rata 1-2 hari kerja untuk Website dan 1-2 minggu untuk sistem aplikasi kustom.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Berapa lama waktu pengerjaan website? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Rata-rata 1-2 hari kerja untuk website dan 1-2 minggu untuk sistem aplikasi kustom.</div></div>
             <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Apakah harga sudah termasuk domain dan hosting? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Ya, paket Starter dan Business sudah include domain .com/.id dan hosting selama 1 tahun.</div></div>
             <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Apakah saya bisa mengubah konten sendiri? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Bisa. Kami memberikan akses dashboard admin yang mudah digunakan tanpa perlu skill coding.</div></div>
             <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-question">Apakah website aman dari hacker? <i class="fa-solid fa-chevron-down"></i></div><div class="faq-answer">Kami memasang SSL Certificate dan sistem keamanan dasar untuk meminimalisir risiko serangan.</div></div>
@@ -283,7 +456,6 @@
         
         function toggleFaq(element) { element.classList.toggle('active'); }
 
-        // Fungsi Baru untuk Memilih Paket
         function selectPackage(packageName) {
             const selectElement = document.getElementById('paket');
             selectElement.value = packageName;
